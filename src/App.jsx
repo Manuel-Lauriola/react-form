@@ -3,6 +3,16 @@ const mugiwara = ["Luffy", "Zoro", "Nami", "Sanji", "Usopp", "Chopper", "Robin",
 
 function App() {
   const [newMember, setNewMember] = useState("")
+  // al caricamento della pagina imposto come variabile di stato crew = mugiwara
+  const [crew, setCrew] = useState(mugiwara)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    const newCrew = [...crew, newMember]
+    setCrew(newCrew)
+    setNewMember("")
+  }
   return (
     <>
       <div className="container">
@@ -12,11 +22,11 @@ function App() {
           </div>
           <div className="col-12">
             <ul className="list-unstyled">
-              {mugiwara.map((member, index) =>
+              {crew.map((member, index) =>
                 <li className="crew" key={index}>{member}</li>
               )}
             </ul>
-            <form>
+            <form onSubmit={handleSubmit}>
               <input type="text"
                 name="newMember"
                 id="newMember"
