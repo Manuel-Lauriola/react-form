@@ -14,6 +14,10 @@ function App() {
                 <li className="crew" key={index}>{member}</li>
               )}
             </ul>
+            <form>
+              <input type="text" name="newMember" id="newMember" placeholder="nuovo membro" />
+              <button className="btn btn-primary">Aggiungi</button>
+            </form>
           </div>
         </div>
       </div>
